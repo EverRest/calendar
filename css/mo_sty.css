@@ -1,0 +1,104 @@
+@import "main.css";
+
+h1 {
+	color: #8694a0;
+}
+
+nav.cf {
+    overflow: hidden;
+}
+
+main table {
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+main table tr:first-child {
+	border-bottom: 3px solid #abaee3;
+	background: linear-gradient(to top, #3225ab, #8e93f9);
+}
+
+main table tr {
+	background: linear-gradient(to top, #c3e2f0, #f2f5f6);
+}
+
+main table tr:nth-child(2n+1) {
+	background: linear-gradient(to top, #bcebfb, #6eb9d2);	
+}
+
+main table tr td.date-cell {
+    transition: background-color 1s ease-out 0.5s;    
+}
+
+main table tr td {
+	text-align: center;
+	/*transition: background-color 1s ease-out 0.5s;*/
+}
+
+main table tr td.date-cell:hover {
+
+background-color: #ffffff;
+color: #000000;
+
+}
+
+main table tr td a p:hover {
+	text-decoration: underline;
+}
+
+div.b-popup nav ul li a {
+    background: linear-gradient(to top, #b9d7e9, #f9fafb);
+    margin: 5px 10px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+
+/**********All styles popup**********/
+.b-popup{
+    width:100%;
+    min-height:100%;
+    background-color: rgba(0,0,0,0.5);
+    overflow:hidden;
+    position:fixed;
+    top:0px;
+}
+.b-popup .b-popup-content{
+    margin:40px auto 0px auto;
+    width:300px;
+    height: 450px;
+    padding:10px;
+    background: linear-gradient(to right, #e9f7f8,#e7f9fa);
+    border-radius:5px;
+    box-shadow: 0px 0px 10px #000;
+}
+
+/****************FORM**************************/
+
+nav.cf {
+    height: 60px;
+    margin-top: 25px;
+}
+
+form {
+    width: 100%;
+    margin: 20px 0;
+}
+
+form label, form input {
+    margin: 5px 0 5px 10px;
+    line-height: 35px;
+    width: 50%;
+}
+
+form label {
+    margin-left: 50px;
+}
+
+form input {
+    background: linear-gradient(to top, #ffffff, #dcdfe8);
+    box-shadow: none;
+    border-radius: 5px;
+    float: right;
+    border: 0px;
+    margin-right: 40px;
+}

@@ -1,0 +1,250 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>30-Day Quest</title>
+  		<link rel="stylesheet" href="css/main.css" />
+  		<script src="http://code.jquery.com/jquery-latest.js"></script>
+  		  <style>
+			  /* @font-face {				
+					font-family: shanghai; 
+			    	src: url(fonts/shanghai.ttf); 
+			   }*/
+
+			   	@font-face {
+			   		font-family: albam;
+			   		src: url(fonts/ALBA____.ttf);
+			   	}
+
+			   h1, caption, p, a ,  label,table {
+			    	/*font-family: shanghai;*/
+			    	font-family: albam;
+			   }
+
+			   h1, a, caption {
+			   		text-shadow: 1px 1px 2px #000000;
+			   }
+
+  		</style>
+	</head>
+	<body>
+		<header class="cf">
+			<div class="wrapper">
+				<div>
+					<img src="img/calendar.png" alt="logo" />
+					<h1>Everyday
+						<span>
+							work
+						</span>
+					</h1>
+				</div>
+				<nav>
+					<ul>
+
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<main class="wrapper">
+			<div id="calendar-holder">
+				
+			</div>
+		</main>
+		<footer>
+			<div class="wrapper">
+				<p>&copy <span>DoWhatyouLike</span> 2014</p>
+			</div>
+		</footer>
+		<div class="b-popup" id="popup1">
+		    <div class="b-popup-content">
+		    <nav class="cf">
+			<ul>
+				<li>
+					<a href="javascript:addQuest()">Add quest</a>
+				</li>
+				<!--
+				<li>
+					<a href="javascript:" >Close guest</a>
+				</li>
+			-->
+				<li>
+					<a href="javascript:PopUpHide()">Exit</a>
+				</li>
+			</ul>
+		</nav>
+		<form>
+			<p>
+				<label for="from">from</label>
+				<input id="from" type="time" value="00:00:00" name="from" />
+			</p>
+			<p>
+				<label for="to">to</label>
+				<input id="to" type="time" value="02:00:00" name="to" />
+			</p>
+
+			<p>
+				<label for="quest">Quest</label>
+				<input size="30" maxlength = "100" id="quest" type="text" placeholder="just do it!" name="quest" />
+			</p>
+		</form>
+		<div id="quests-holder">
+
+		</div>
+		</div>
+		<!--<footer>
+			<div class="wrapper">
+				<p>&copy <span>DoWhatyouLike</span> 2014</p>
+			</div>
+		</footer>-->
+		<script type="text/javascript">
+
+		$(document).ready(function(){
+		var a = new Date();
+		var y = a.getFullYear();
+		var	m = a.getMonth();
+		var c = a.getDate();
+		var calendar = new Calendar({
+		        value: {day: c, year: y, month: m , day: c }
+		    });
+
+		$('#calendar-holder').append(calendar.getElement());
+
+		 /* Вертає номер TD в таблиці
+		 */
+		function getCellByDate(date) {
+		  var date1 = new Date(date.getFullYear(), date.getMonth(), 1);
+
+		  return getDay(date1) + date.getDate() - 1;
+		}
+
+		/* отримати номер дня в тижні, від 0(mo) до 6(su)
+		 */
+		function getDay(date) { 
+		  var day = date.getDay();
+		  if (day == 0) day = 7;
+		  return day - 1;
+		}
+
+		/* Генерує таблицю для календаря відповідного місяця і року
+		 */
+		function drawCalendar(year, month) {
+
+		  var d = new Date(year, month);
+
+		  var table = ['<table class="calendar-table"><caption></caption><tr><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr><tr>'];
+
+		  for (var i=0; i<getDay(d); i++) {
+		    table.push('<td></td>');
+		  }
+
+		  // td з датами
+		  while(d.getMonth() == month) {
+		    table.push('<td class="date-cell"><a href="javascript:PopUpShow()" >'+d.getDate()+'</a></td>');
+
+		    if (getDay(d) % 7 == 6) {
+		     // перевід строки при заповнюванні
+		      table.push('</tr><tr>');
+		    }
+
+		    d.setDate(d.getDate()+1);
+		  }
+
+		  // додати пусті td
+		  if (getDay(d) != 0) {
+		    for (var i=getDay(d); i<7; i++) {
+		      table.push('<td></td>');
+		    }
+		  }
+
+		  table.push('</tr></table>');
+
+		  return table.join('\n')
+		}
+
+		/**
+			Календар
+		 */
+		function Calendar(options) {
+		  var value = options.value,
+		      self = this,
+		      wrap,
+		      customDate = {
+		        year : value.year,
+		        month: value.month,
+		        date : options.date || 1,
+		       day : value.day
+		      };
+
+		      monthNames = 'January February March April May June July August September Oktober November December'.split(' ');
+
+		  this.setValue = function(date) {
+		    if(date instanceof Date) {
+		      customDate.year = date.getFullYear();
+		      customDate.month = date.getMonth();
+		      customDate.date = date.getDate() || 1;
+		      customDate.day = date.getDay();
+
+		    } else {
+		      customDate.year  =  date.year;
+		      customDate.month =  date.month;
+		      customDate.date  =  date.date || 1;
+		      customDate.day = date.day;
+		    }
+
+		  };
+		  /*Вибирає поточну дату
+		  */
+		  function selectCurrentDate(selDate) {
+		    wrap.find('caption').html(customDate.day+'  '+monthNames[customDate.month]+'  '+customDate.year);
+		    var date = new  Date(customDate.year, customDate.month, customDate.day);
+		    var td = wrap.find('td').eq(getCellByDate(date));
+		    clearSelected();
+		    td.addClass('selected');
+		  }
+
+		  function clearSelected() {
+		    wrap.find('.selected').removeClass('selected');
+		  }
+
+		  self.getElement = function() {
+
+		    wrap = $('#calendar-holder');
+		    wrap.html(drawCalendar(customDate.year,  customDate.month));
+
+		    selectCurrentDate(customDate.date);
+
+		    return wrap;
+		  }
+
+		}
+		/*Додавання квеста*/
+		function addQuest() {
+			var from = document.getElementById('from').value;
+			var to = document.getElementById('to').value;
+			var quest = document.getElementById('quest').value;
+		}
+
+		/*Відкривання нового вікна*/
+/*
+		function winop() {
+		windop = window.open("24hours.html","mywin","height=220,width=400");
+		}*/
+/*		function wincl() {
+		windop.close();
+		} */
+
+		/*PopUp*/
+
+/*		$(document).ready(function(){*/
+		    PopUpHide();
+		});
+		function PopUpShow(){
+		    $("#popup1").show();
+		}
+		function PopUpHide(){
+		    $("#popup1").hide();
+		}
+
+	</script>
+</body>
+</html>
