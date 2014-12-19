@@ -2,101 +2,543 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<title>30-Day Quest</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Calendar</title>
   		<link rel="stylesheet" href="css/main.css" />
-  		<script src="http://code.jquery.com/jquery-latest.js"></script>
-  		  <style>
-			  /* @font-face {				
-					font-family: shanghai; 
-			    	src: url(fonts/shanghai.ttf); 
-			   }*/
-
-			   	@font-face {
-			   		font-family: albam;
-			   		src: url(fonts/ALBA____.ttf);
-			   	}
-
-			   h1, caption, p, a ,  label,table {
-			    	/*font-family: shanghai;*/
-			    	font-family: albam;
-			   }
-
-			   h1, a, caption {
-			   		text-shadow: 1px 1px 2px #000000;
-			   }
-
-  		</style>
+		<link href="css/bootstrap-responsive.css" rel="stylesheet">
+    	<link href="css/bootstrap.min.css" rel="stylesheet">
 	</head>
-	<body>
-		<header class="cf">
-			<div class="wrapper">
-				<div>
-					<img src="img/calendar.png" alt="logo" />
-					<h1>Everyday
-						<span>
-							work
-						</span>
-					</h1>
+	<body class="container-fluid">
+		
+			<header class="row-fluid">
+				<div class="span3 offset1">
+					<img src="img/calendar.png" alt="" />
 				</div>
-				<nav>
-					<ul>
+				
+				<form class="form-search span3">
+					<div class="input-append row-fluid">
+						  <input type="text" class="span12 search-query">
+						   <button type="submit" class="btn"><i class="icon-search icon-white"></i></button>
+					</div>
+				</form>
+				
+				<div class="span4 offset1" id="profile">
+					<img src="img/avatar.jpg" class="ava"  alt=""/>
+					<div>
+						<h4>Maila</h4>
+						<p><span> | </span><a href="#">Log off</a></p>
+					</div>
 
+				</div>
+			</header>
+
+			<div id="bottom_header" class="row-fluid">
+				<h1 class="span2 offset1">
+					WebReport
+				</h1>
+				<nav class="span6 offset2">
+					<ul>
+						<li>
+							<a class="btn btn-small" href="">Day</a>
+						</li>
+						<li>
+							<a class="btn btn-small" href="">Weak</a>
+						</li>
+						<li>
+							<a class="btn btn-small" href="">Month</a>
+						</li>
+						<li>
+							<a class="btn btn-small" href="">Statistic</a>
+						</li>
+						<li>
+							<a class="btn btn-small" href="">Link</a>
+						</li>
+						<li>
+							<a class="btn btn-small" href="">Link</a>
+						</li>
 					</ul>
 				</nav>
 			</div>
-		</header>
-		<main class="wrapper">
-			<div id="calendar-holder">
-				
-			</div>
-		</main>
-		<footer>
-			<div class="wrapper">
-				<p>&copy <span>DoWhatyouLike</span> 2014</p>
-			</div>
-		</footer>
-		<div class="b-popup" id="popup1">
-		    <div class="b-popup-content">
-		    <nav class="cf">
-			<ul>
-				<li>
-					<a href="javascript:addQuest()">Add quest</a>
-				</li>
-				<!--
-				<li>
-					<a href="javascript:" >Close guest</a>
-				</li>
-			-->
-				<li>
-					<a href="javascript:PopUpHide()">Exit</a>
-				</li>
-			</ul>
-		</nav>
-		<form>
-			<p>
-				<label for="from">from</label>
-				<input id="from" type="time" value="00:00:00" name="from" />
-			</p>
-			<p>
-				<label for="to">to</label>
-				<input id="to" type="time" value="02:00:00" name="to" />
-			</p>
+			
+			<div class="row-fluid">
+				<aside class="span2 offset1">
+					<div id="calendar-holder">
+					</div>
+				</aside>
+				<div id="main" class="span8 offset1">
+					<table class="table  table-bordered table-striped table-hover">
+						<tr>
+							<th> </th>
+							<th>Mon</th>
+							<th>Tue</th>
+							<th>Wed</th>
+							<th>Thu</th>
+							<th>Fri</th>
+							<th>Sat</th>
+							<th>Sun</th>
+						</tr>
+						<tr>
+							<td>12AM</td>
 
-			<p>
-				<label for="quest">Quest</label>
-				<input size="30" maxlength = "100" id="quest" type="text" placeholder="just do it!" name="quest" />
-			</p>
-		</form>
-		<div id="quests-holder">
+							<td> </td>
 
-		</div>
-		</div>
-		<!--<footer>
-			<div class="wrapper">
-				<p>&copy <span>DoWhatyouLike</span> 2014</p>
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td></td>
+						</tr>
+						<tr>
+							<td>1AM</td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td></td>
+						</tr>
+						<tr>
+							<td>2AM</td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td></td>
+						</tr>
+						<tr>
+							<td>3AM</td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td></td>
+						</tr>
+						<tr>
+							<td>4AM</td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td></td>
+						</tr>
+						<tr>
+							<td>5AM</td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td></td>
+						</tr>
+						<tr>
+							<td>6AM</td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td></td>
+						</tr>
+						<tr>
+							<td>7AM</td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td></td>
+						</tr>
+						<tr>
+							<td>8AM</td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td></td>
+						</tr>
+						<tr>
+							<td>9AM</td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td></td>
+						</tr>
+						<tr>
+							<td>10AM</td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td>/</td>
+						</tr>
+						<tr>
+							<td>11AM</td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td></td>
+						</tr>
+						<tr>
+							<td>12PM</td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td></td>
+						</tr>
+						<tr>
+							<td>1PM</td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td></td>
+						</tr>
+						<tr>
+							<td>2PM</td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td></td>
+						</tr>
+						<tr>
+							<td>3PM</td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td></td>
+						</tr>
+						<tr>
+							<td>4PM</td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td></td>
+						</tr>
+						<tr>
+							<td>5PM</td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td></td>
+						</tr>
+						<tr>
+							<td>6PM</td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td></td>
+						</tr>
+						<tr>
+							<td>7PM</td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td></td>
+						</tr>
+						<tr>
+							<td>8PM</td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td></td>
+						</tr>
+						<tr>
+							<td>9PM</td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td></td>
+						</tr>
+						<tr>
+							<td>10PM</td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td></td>
+						</tr>
+						<tr>
+							<td>11PM</td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td> </td>
+
+							<td></td>
+						</tr>
+					</table>
+				</div>
 			</div>
-		</footer>-->
-		<script type="text/javascript">
+			<footer class="row-fluid">
+				<ul>
+					<li>
+						<a href="#">
+							Anton
+						</a>
+						<span> /</span>
+					</li>
+					<li>
+						<a href="#">
+							Orest
+						</a>
+						<span> /</span>
+					</li>
+					<li>
+						<a href="#">
+							Sasha
+						</a>
+						<span> /</span>
+					</li>
+					<li>
+						<a href="#">
+							Maryan
+						</a>
+						<span> /</span>
+					</li>				
+					<li>
+						<a href="#">
+							Andriy
+						</a>
+						<span> /</span>
+					</li>
+					<li>
+						<a href="#">
+							Nazar
+						</a>
+						<span> /</span>
+					</li>
+					<li>
+						<a href="#">
+							Pavlo
+						</a>
+					</li>
+				</ul>
+			</footer>
+
+		
+		<script src="http://code.jquery.com/jquery-latest.js"></script>
+    	<script src="js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
 
 		$(document).ready(function(){
 		var a = new Date();
@@ -131,7 +573,7 @@
 
 		  var d = new Date(year, month);
 
-		  var table = ['<table class="calendar-table"><caption></caption><tr><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr><tr>'];
+		  var table = ['<table class="calendar-table table table-striped table-hover table-condensed"><caption></caption><tr><th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th><th>Su</th></tr><tr>'];
 
 		  for (var i=0; i<getDay(d); i++) {
 		    table.push('<td></td>');
@@ -217,34 +659,9 @@
 		  }
 
 		}
-		/*Додавання квеста*/
-		function addQuest() {
-			var from = document.getElementById('from').value;
-			var to = document.getElementById('to').value;
-			var quest = document.getElementById('quest').value;
-		}
 
-		/*Відкривання нового вікна*/
-/*
-		function winop() {
-		windop = window.open("24hours.html","mywin","height=220,width=400");
-		}*/
-/*		function wincl() {
-		windop.close();
-		} */
-
-		/*PopUp*/
-
-/*		$(document).ready(function(){*/
-		    PopUpHide();
 		});
-		function PopUpShow(){
-		    $("#popup1").show();
-		}
-		function PopUpHide(){
-		    $("#popup1").hide();
-		}
 
 	</script>
-</body>
+	</body>
 </html>

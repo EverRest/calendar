@@ -1,130 +1,193 @@
 @import "normalize.css";
-@import "mo_sty.css";
 
-body {
-	background: linear-gradient(to right, #e9f7f8,#e7f9fa);
-}
+@font-face {
+    font-family: KR; 
+    src: url("fonts/KR_Graphed.ttf"); 
+   }
 
-.wrapper {
-	width: 940px;
-	margin: 0 auto;
+@font-face {
+    font-family: Under; 
+    src: url("fonts/MyUnderwood.ttf"); 
+   }
+
+
+body.container-fluid {
 	padding: 0;
 }
 
-
-/*******HEADER*********/
+/*HEADER*/
 
 header {
-	width: 100%;
-	margin: 0 auto;
-	padding: 0;
-	/*background: linear-gradient(to bottom, #99c7f7, #dfe9f4);
-	border-bottom: solid 2px #ffffff;*/
+	background: linear-gradient(to top, #fefcea, #f1da36);
+	border-bottom: 1px solid gold;
 }
 
-header div.wrapper {
-	padding: 10px 0;
+header h4 {
+	display: inline-block;
+	/*float: right;
+	margin: 25px 50px 0 20px;
+	*/
+	font: bold 16px Under;
+	color: #ffffff;
 }
 
-header div img {
+div img {
+	margin: 10px 0;
 	float: left;
+	overflow: hidden;
 }
 
-header div div h1 {
-	margin: 0 auto;
-	line-height: 50px;
-	color: #abaee3;
+
+
+div#profile div {
+	
+	overflow: hidden;
+	width: 50%;
+	margin-top: 15px;
+	padding-left: 5px;
 }
 
-header div div h1 span {
-	color: #dcdfe1;
-	text-align: left;
-	text-transform: uppercase;
+
+div#profile div p {
+	display: inline-block;
 }
 
-nav ul li {
-	list-style: none;
+div#profile div p a, div#profile div p span {
+
+		color: grey;
+}
+
+div#profile div a {
+		text-decoration: none;
+		font: bold 14px Verdana;
+	}
+
+img.ava {
+	height: 50px;
+	width: 50px;
+	border-radius: 30px;
+}
+
+header form {
+	margin: 20px 0;
+}
+
+/*DIV#bottom_header*/
+
+div#bottom_header {
+	border-bottom: 1px solid gold;
+}
+
+div#bottom_header nav {
+	margin-top: 7px;
+}
+
+div#bottom_header nav ul {
+	margin: 5px 90px 5px 0;
+	float: right;
+	overflow: hidden;
+}
+
+div#bottom_header nav ul li {
 	display: inline-block;
 	float: left;
 }
 
-nav ul li a {
-	text-decoration: none;
+div#bottom_header nav ul li a {
+	color: gray;
+	font: normal 16px Verdana;
 }
 
-/******MAIN*************/
-
-main table {
-	width: 100%;
-}
-
-main table tr:first-child {
-	border-bottom: 3px solid #abaee3;
-	background: linear-gradient(to top, #3225ab, #8e93f9);
-}
-
-main table tr {
-	background: linear-gradient(to top, #c3e2f0, #f2f5f6);
-}
-
-main table tr:nth-child(2n+1) {
-	background: linear-gradient(to top, #bcebfb, #6eb9d2);	
-}
-
-main table tr td a {
-	text-decoration: none;
-	color: #000000;
+div#bottom_header nav ul li a:hover {
+	color: #000;
 }
 
 
-.calendar-table {
-  border-collapse: collapse;
-  margin: 0 auto;
+h1 {
+	font: normal 25px Under !important;
+	color: gray !important;
+	
+	display: block;
+	float: left;
 }
 
-.calendar-table td, .calendar-table th {
-  padding: 3px;
-  line-height: 40px;
-  text-align: center;
-}
 
-.calendar-table th {
-  font-weight: bold;
-  background-color: #E6E6E6;
-}
+/*ASIDE*/
+	/*div.row-fluid aside.span3 {
+		margin-left: 100px !important;
+	}*/
 
-caption {
-	font-size: 30px;
-	margin: 10px 0;
-}
+	.selected {
+		background: grey !important;
+		opacity: 0.7;
+	}
 
-.date-cell:hover {
-  background: #ffffff;
-  cursor: pointer;
-	transition: background-color 1s ease-out 0.3s;
-	text-decoration: underline;
-}
+	.selected a {
+		color: #ffffff;
+	}
 
-.date-cell.selected {
-  background: linear-gradient(to top, #9582f6, #b4b6f3);
-}
+	aside #calendar-holder:hover {
+		cursor: pointer;
+	}
 
-.calendar-table caption {
-  text-align: center;
-}
+	aside table {
+		margin-top: 25px;
+	}
 
-/*******FOOTER********/
+	aside table th {
+		color:silver;
+		font-family: Verdana;
+	}
+
+.table th, .table td {
+	text-align: center !important;
+	}
+
+	aside table a, aside caption {
+		color: gold;
+		font-family: Verdana;
+	}
+
+	aside table a:hover {
+		color: grey;
+	}
+
+/*DIV#main*/
+
+div#main table {
+	width: 80%;
+	margin: 2% 0;
+	font-family: times;
+	font-weight: bold;
+	color: gray;
+}
+	
+/*FOOTER*/
 
 footer {
-    background-color: #fff; 
-    width: 100%; 
-    height: 30px;
-    opacity: 0.4;
-    position: fixed;
-    bottom: 0;
+	position: fixed;
+	bottom: 0;
+	border-top: 1px solid gold;
 }
 
-footer p {
-	line-height: 30px;
+footer ul {
+	display: block;
+	width: 50%;
 	margin: 0 auto;
+}
+
+footer ul li {
+	display: inline-block;
+	float: left;
+	margin-right: 5px;
+}
+
+footer ul li a, footer ul li a+span {
+	color: gold;
+	font: normal 14px Under;
+}
+
+footer ul li a:hover {
+	color: grey;
+	text-decoration: none;
 }
